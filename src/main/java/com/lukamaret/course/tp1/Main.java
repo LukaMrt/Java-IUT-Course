@@ -1,8 +1,4 @@
-package com.lukamaret.course.main;
-
-import com.lukamaret.course.tp1.Conversion;
-import com.lukamaret.course.tp1.Tax;
-import com.lukamaret.course.tp1.Somme;
+package com.lukamaret.course.tp1;
 
 import java.util.Scanner;
 
