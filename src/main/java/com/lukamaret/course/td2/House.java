@@ -1,4 +1,4 @@
-package com.lukamaret.course.tp2;
+package com.lukamaret.course.td2;
 
 public class House {
 
@@ -24,18 +24,8 @@ public class House {
         return Math.round(area * areaPrice * localRate * 300.0) / 100.0;
     }
 
-    public static int compareTaxes(double tax1, double tax2) {
-
-        if (tax1 > tax2) {
-            return 1;
-        }
-
-        if (tax1 == tax2) {
-            return 0;
-        }
-
-        return -1;
-//        return Double.compare(tax1, tax2);
+    public int compareTaxes(House other, float localRate) {
+        return Double.compare(this.computeTax(localRate), other.computeTax(localRate));
     }
 
     public static int getId() {

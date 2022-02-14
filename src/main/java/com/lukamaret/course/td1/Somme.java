@@ -1,4 +1,4 @@
-package com.lukamaret.course.tp1;
+package com.lukamaret.course.td1;
 
 public class Somme {
 

@@ -1,4 +1,4 @@
-package com.lukamaret.course.tp2;
+package com.lukamaret.course.td2;
 
 public class BankAccount {
 

@@ -1,4 +1,4 @@
-package com.lukamaret.course.tp2;
+package com.lukamaret.course.td2;
 
 public class Main {
 
@@ -10,7 +10,7 @@ public class Main {
         double tax1 = house1.computeTax(0.24F);
         double tax2 = house2.computeTax(0.21F);
 
-        int compare = House.compareTaxes(tax1, tax2);
+        int compare = house1.compareTaxes(house2, 0.24F);
 
         System.out.println("Maison 1 : " + tax1);
         System.out.println("Maison 2 : " + tax2);
