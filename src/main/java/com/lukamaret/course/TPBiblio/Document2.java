@@ -1,6 +1,6 @@
 package com.lukamaret.course.TPBiblio;
 
-public class Document {
+public class Document2 {
 
     private final String archiveCode;
     private final String title;
@@ -10,7 +10,7 @@ public class Document {
     private boolean reserved;
     private String reserveName;
 
-    public Document(String archiveCode, String title, String author, int publicationYear) {
+    public Document2(String archiveCode, String title, String author, int publicationYear) {
         this.archiveCode = archiveCode;
         this.title = title;
         this.author = author;
@@ -22,82 +22,130 @@ public class Document {
 
     public boolean borrow(String name) {
 
+        boolean result;
+
         if (this.status == Status.WAITING_RESERVE) {
-            return this.borrowReserved(name);
+
+            result = this.borrowReserved(name);
+
+        } else if (status != Status.AVAILABLE) {
+
+            result = this.reserve(name);
+
+        } else {
+
+            this.status = Status.BORROWED;
+            this.reserved = false;
+            this.reserveName = "";
+            result = true;
+
         }
 
-        if (status != Status.AVAILABLE) {
-            return this.reserve(name);
-        }
-
-        this.status = Status.BORROWED;
-        this.reserved = false;
-        this.reserveName = "";
-        return true;
+        return result;
     }
 
     public boolean borrowReserved(String name) {
 
+        boolean result;
+
         if (this.status != Status.WAITING_RESERVE || !this.reserveName.equals(name)) {
-            return false;
+
+            result = false;
+
+        } else {
+
+            this.status = Status.BORROWED;
+            this.reserved = false;
+            this.reserveName = "";
+            result = true;
+
         }
 
-        this.status = Status.BORROWED;
-        this.reserved = false;
-        this.reserveName = "";
-        return true;
+        return result;
     }
 
     public boolean returnDocument() {
 
+        boolean result;
+
         if (this.status != Status.BORROWED) {
-            return false;
-        }
 
-        if (reserved) {
+            result = false;
+
+        } else if (reserved) {
+
             this.status = Status.WAITING_RESERVE;
-            return true;
+            result = true;
+
+        } else {
+
+            this.status = Status.RETURNED;
+            result = true;
+
         }
 
-        this.status = Status.RETURNED;
-        return true;
+        return result;
     }
 
     public boolean store() {
 
+        boolean result;
+
         if (this.status != Status.RETURNED) {
-            return false;
+
+            result = false;
+
+        } else {
+
+            this.status = Status.AVAILABLE;
+            result = true;
+
         }
 
-        this.status = Status.AVAILABLE;
-        return true;
+        return result;
     }
 
     public boolean reserve(String name) {
 
+        boolean result;
+
         if (this.reserved) {
-            return false;
-        }
 
-        if (this.status == Status.AVAILABLE) {
+            result = false;
+
+        } else if (this.status == Status.AVAILABLE) {
+
             this.status = Status.WAITING_RESERVE;
-            return false;
+            result = false;
+
+        } else {
+
+            this.reserveName = name;
+            this.reserved = true;
+            result = true;
+
         }
 
-        this.reserveName = name;
-        this.reserved = true;
-        return true;
+        return result;
     }
 
     public boolean cancelReserve(String name) {
 
+        boolean result;
+
         if (this.status != Status.WAITING_RESERVE || !this.reserveName.equals(name)) {
-            return false;
+
+            result = false;
+
+        } else {
+
+            this.reserved = false;
+            this.status = Status.RETURNED;
+            result = true;
+
         }
 
-        this.reserved = false;
-        this.status = Status.RETURNED;
-        return true;
+        return result;
     }
 
     public String getTitle() {
