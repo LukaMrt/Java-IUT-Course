@@ -1,50 +1,55 @@
 package com.lukamaret.course.TPBiblio;
 
-public class Document {
+public class Document3 {
+
+    private static int borrowed = 0;
+    private static int returned = 0;
+    private static int waitingReserve = 0;
 
     private final String archiveCode;
     private final String title;
     private final String author;
     private final int publicationYear;
     private Status status;
-    private boolean reserved;
-    private String reserverName;
+    private Member borrower;
+    private Member reserver;
 
-    public Document(String archiveCode, String title, String author, int publicationYear) {
+    public Document3(String archiveCode, String title, String author, int publicationYear) {
         this.archiveCode = archiveCode;
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
-        this.reserved = false;
         this.status = Status.AVAILABLE;
-        this.reserverName = "";
     }
 
-    public boolean borrow(String name) {
+    public boolean borrow(Member member) {
 
         if (this.status == Status.WAITING_RESERVE) {
-            return this.borrowReserved(name);
+            return this.borrowReserved(member);
         }
 
         if (status != Status.AVAILABLE) {
-            return this.reserve(name);
+            return this.reserve(member);
         }
 
         this.status = Status.BORROWED;
-        this.reserved = false;
-        this.reserverName = "";
+        this.reserver = null;
+        this.borrower = member;
+        borrowed++;
         return true;
     }
 
-    public boolean borrowReserved(String name) {
+    public boolean borrowReserved(Member member) {
 
-        if (this.status != Status.WAITING_RESERVE || !this.reserverName.equals(name)) {
+        if (this.status != Status.WAITING_RESERVE || (this.reserver != null && !this.reserver.getName().equals(member.getName()))) {
             return false;
         }
 
         this.status = Status.BORROWED;
-        this.reserved = false;
-        this.reserverName = "";
+        this.reserver = null;
+        this.borrower = member;
+        borrowed++;
+        waitingReserve--;
         return true;
     }
 
@@ -54,12 +59,16 @@ public class Document {
             return false;
         }
 
-        if (reserved) {
+        borrowed--;
+
+        if (this.reserver != null) {
             this.status = Status.WAITING_RESERVE;
+            waitingReserve++;
             return true;
         }
 
         this.status = Status.RETURNED;
+        returned++;
         return true;
     }
 
@@ -70,33 +79,37 @@ public class Document {
         }
 
         this.status = Status.AVAILABLE;
+        returned--;
         return true;
     }
 
-    public boolean reserve(String name) {
+    public boolean reserve(Member member) {
 
-        if (this.reserved) {
+        if (this.reserver != null) {
             return false;
         }
+
+        this.reserver = member;
 
         if (this.status == Status.AVAILABLE) {
             this.status = Status.WAITING_RESERVE;
-            return false;
+            waitingReserve++;
+            return true;
         }
 
-        this.reserverName = name;
-        this.reserved = true;
         return true;
     }
 
-    public boolean cancelReserve(String name) {
+    public boolean cancelReserve(Member member) {
 
-        if (this.status != Status.WAITING_RESERVE || !this.reserverName.equals(name)) {
+        if (this.status != Status.WAITING_RESERVE || !this.reserver.getName().equals(member.getName())) {
             return false;
         }
 
-        this.reserved = false;
+        this.reserver = null;
         this.status = Status.RETURNED;
+        returned++;
+        waitingReserve--;
         return true;
     }
 
@@ -106,14 +119,14 @@ public class Document {
 
     public String getStatus() {
 
-        if (this.reserved && this.status != Status.AVAILABLE) {
-            return "Réservé";
+        if (this.reserver != null && this.status != Status.AVAILABLE) {
+            return "Réservé par " + this.reserver.getName();
         }
 
         return switch (this.status) {
             case AVAILABLE -> "Disponible";
-            case BORROWED -> "Emprunté";
-            case WAITING_RESERVE -> "Réservé";
+            case BORROWED -> "Emprunté par " + this.borrower.getName();
+            case WAITING_RESERVE -> "Réservé par une personne inconnue";
             case RETURNED -> "Retourné";
         };
 
@@ -123,16 +136,24 @@ public class Document {
         return this.status == Status.BORROWED;
     }
 
+    public String getBorrower() {
+        return this.borrower.getName();
+    }
+
+    public String getReserver() {
+        return this.reserver.getName();
+    }
+
     @Override
     public String toString() {
-        return "Document{" +
+        return "Document3{" +
                 "archiveCode='" + archiveCode + '\'' +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", publicationYear=" + publicationYear +
+                ", borrower=" + borrower +
+                ", reserver=" + reserver +
                 ", status=" + status +
-                ", reserved=" + reserved +
-                ", reserverName='" + reserverName + '\'' +
                 '}';
     }
 
