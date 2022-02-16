@@ -1,4 +1,4 @@
-package com.lukamaret.course.TPBiblio;
+package com.lukamaret.course.projetTP.seance2;
 
 public class Member {
 
