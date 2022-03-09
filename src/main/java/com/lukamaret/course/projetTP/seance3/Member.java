@@ -1,4 +1,4 @@
-package com.lukamaret.course.projetTP.seance2;
+package com.lukamaret.course.projetTP.seance3;
 
 public class Member {
 
@@ -25,13 +25,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return "Member{" +
-                "memberId=" + memberId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+        return firstName + " " + lastName;
     }
 
 }

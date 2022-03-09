@@ -1,4 +1,4 @@
-package com.lukamaret.course.projetTP.seance2;
+package com.lukamaret.course.projetTP.seance3;
 
 public class Document {
 
@@ -115,15 +115,19 @@ public class Document {
         return title;
     }
 
+    public String getAuthor() {
+        return this.author;
+    }
+
     public String getStatus() {
 
-        if (this.reserver != null) {
-            return "Réservé par " + this.reserver.getName();
+        if (isBorrowed()) {
+            return "Réservé par " + getReserver();
         }
 
         return switch (this.status) {
             case AVAILABLE -> "Disponible";
-            case BORROWED -> "Emprunté par " + this.borrower.getName();
+            case BORROWED -> "Emprunté par " + getBorrower();
             case WAITING_RESERVE -> "Réservé par une personne inconnue";
             case RETURNED -> "Retourné";
         };
@@ -156,15 +160,7 @@ public class Document {
 
     @Override
     public String toString() {
-        return "Document3{" +
-                "archiveCode='" + archiveCode + '\'' +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", publicationYear=" + publicationYear +
-                ", borrower=" + (borrower != null ? borrower : "null") +
-                ", reserver=" + (reserver != null ? reserver : "null") +
-                ", status=" + status +
-                '}';
+        return title + " écrit en " + publicationYear + " par " + author + " (code " + archiveCode + ")";
     }
 
 }

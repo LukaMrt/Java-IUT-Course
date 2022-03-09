@@ -1,4 +1,4 @@
-package com.lukamaret.course.projetTP.seance2;
+package com.lukamaret.course.projetTP.seance3;
 
 public enum Status {
 
