@@ -1,4 +1,4 @@
-package com.lukamaret.course.td5;
+package com.lukamaret.course.projetTD.td3;
 
 public class Tenant {
 
@@ -23,10 +23,6 @@ public class Tenant {
     public void freeRent() {
         this.house = null;
         this.amount = 0;
-    }
-
-    public boolean isRenter(House house) {
-        return this.house == house;
     }
 
     @Override

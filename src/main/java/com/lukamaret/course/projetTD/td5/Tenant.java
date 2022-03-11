@@ -1,4 +1,4 @@
-package com.lukamaret.course.td4;
+package com.lukamaret.course.projetTD.td5;
 
 public class Tenant {
 

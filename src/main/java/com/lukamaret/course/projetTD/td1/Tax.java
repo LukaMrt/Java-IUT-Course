@@ -1,4 +1,4 @@
-package com.lukamaret.course.td1;
+package com.lukamaret.course.projetTD.td1;
 
 public class Tax {
 

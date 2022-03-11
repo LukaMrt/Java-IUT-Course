@@ -1,4 +1,4 @@
-package com.lukamaret.course.td4;
+package com.lukamaret.course.projetTD.td4;
 
 public class Owner {
 

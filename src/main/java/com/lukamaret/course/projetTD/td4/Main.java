@@ -1,4 +1,4 @@
-package com.lukamaret.course.td5;
+package com.lukamaret.course.projetTD.td4;
 
 import java.util.Scanner;
 
@@ -16,19 +16,6 @@ public class Main {
 
         House house1 = new House("house 1", 100, 10, owner1);
         House house2 = new House("house 2", 97, 9, owner1);
-
-        Agency agency = new Agency(10);
-        agency.addHouse(house1);
-        agency.addHouse(house2);
-
-        System.out.println(agency.searchById(1));
-        System.out.println(agency.searchById(2));
-
-        agency.printHouses();
-
-        System.out.println(agency.removeById(1));
-
-        agency.printHouses();
 
         owner1.addPrimaryAddress(house1);
         owner1.addSecondAddress(house2);

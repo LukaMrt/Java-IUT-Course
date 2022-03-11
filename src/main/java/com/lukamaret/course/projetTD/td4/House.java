@@ -1,4 +1,4 @@
-package com.lukamaret.course.td3;
+package com.lukamaret.course.projetTD.td4;
 
 public class House {
 
@@ -55,6 +55,10 @@ public class House {
 
     public String getDescription() {
         return description;
+    }
+
+    public boolean isOwnedBy(Owner owner1) {
+        return this.owner == owner1;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.lukamaret.course.td2;
+package com.lukamaret.course.projetTD.td2;
 
 public class House {
 
