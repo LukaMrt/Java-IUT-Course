@@ -1,9 +1,9 @@
-package com.lukamaret.course.projetTP.seanceTD6;
+package com.lukamaret.course.projetTP.seanceTD7;
 
-import com.lukamaret.course.projetTP.seanceTD6.documents.CD;
-import com.lukamaret.course.projetTP.seanceTD6.documents.DocBibliotheque;
-import com.lukamaret.course.projetTP.seanceTD6.documents.Livre;
-import com.lukamaret.course.projetTP.seanceTD6.membres.MembreBibliotheque;
+import com.lukamaret.course.projetTP.seanceTD7.documents.CD;
+import com.lukamaret.course.projetTP.seanceTD7.documents.DocBibliotheque;
+import com.lukamaret.course.projetTP.seanceTD7.documents.Livre;
+import com.lukamaret.course.projetTP.seanceTD7.membres.MembreBibliotheque;
 
 import java.util.ArrayList;
 

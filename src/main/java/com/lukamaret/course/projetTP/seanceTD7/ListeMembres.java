@@ -1,6 +1,6 @@
-package com.lukamaret.course.projetTP.seanceTD6;
+package com.lukamaret.course.projetTP.seanceTD7;
 
-import com.lukamaret.course.projetTP.seanceTD6.membres.MembreBibliotheque;
+import com.lukamaret.course.projetTP.seanceTD7.membres.MembreBibliotheque;
 
 import java.util.ArrayList;
 

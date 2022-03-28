@@ -1,4 +1,4 @@
-package com.lukamaret.course.projetTP.seanceTD6.membres;
+package com.lukamaret.course.projetTP.seanceTD7.membres;
 
 public class MembrePersonnel extends MembreBibliotheque {
 

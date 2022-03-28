@@ -1,4 +1,4 @@
-package com.lukamaret.course.projetTP.seanceTD6.documents;
+package com.lukamaret.course.projetTP.seanceTD7.documents;
 
 import java.util.ArrayList;
 

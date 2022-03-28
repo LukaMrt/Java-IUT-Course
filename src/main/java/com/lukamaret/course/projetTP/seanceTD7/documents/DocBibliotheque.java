@@ -1,8 +1,8 @@
-package com.lukamaret.course.projetTP.seanceTD6.documents;
+package com.lukamaret.course.projetTP.seanceTD7.documents;
 
-import com.lukamaret.course.projetTP.seanceTD6.exceptions.ActionImpossibleException;
-import com.lukamaret.course.projetTP.seanceTD6.membres.MembreBibliotheque;
-import com.lukamaret.course.projetTP.seanceTD6.Status;
+import com.lukamaret.course.projetTP.seanceTD7.exceptions.ActionImpossibleException;
+import com.lukamaret.course.projetTP.seanceTD7.membres.MembreBibliotheque;
+import com.lukamaret.course.projetTP.seanceTD7.Status;
 
 public class DocBibliotheque {
 
