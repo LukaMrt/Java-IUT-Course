@@ -6,7 +6,7 @@ public class Label extends JLabel {
 
     public Label() {
 
-        this.setText("0");
+        this.setText("Résultat : 0");
 
     }
 
