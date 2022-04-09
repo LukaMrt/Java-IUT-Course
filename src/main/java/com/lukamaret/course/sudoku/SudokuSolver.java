@@ -24,15 +24,16 @@ public class SudokuSolver {
             printSolutions(grid, solutions);
         }
 
+        new SFrame();
     }
 
-    private static List<Grid> solve(Grid grid) {
+    public static List<Grid> solve(Grid grid) {
         List<Grid> solutions = new ArrayList<>();
         solve(grid, solutions);
         return solutions;
     }
 
-    private static void solve(Grid grid, List<Grid> solutions) {
+    public static void solve(Grid grid, List<Grid> solutions) {
 
         if (solutions.size() >= 2) {
             return;
@@ -54,7 +55,7 @@ public class SudokuSolver {
 
     }
 
-    private static void printSolutions(Grid grid, List<Grid> solutions) {
+    public static void printSolutions(Grid grid, List<Grid> solutions) {
 
         System.out.println("Original");
         System.out.println(grid);
