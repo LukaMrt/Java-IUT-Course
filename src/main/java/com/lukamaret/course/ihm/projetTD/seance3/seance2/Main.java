@@ -1,6 +1,6 @@
-package com.lukamaret.course.ihm.projetTD.seance2;
+package com.lukamaret.course.ihm.projetTD.seance3.seance2;
 
-import com.lukamaret.course.ihm.projetTD.seance2.ihm.Calculator;
+import com.lukamaret.course.ihm.projetTD.seance3.seance2.ihm.Calculator;
 
 public class Main {
 

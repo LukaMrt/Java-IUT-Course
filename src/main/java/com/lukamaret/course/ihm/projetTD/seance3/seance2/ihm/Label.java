@@ -1,4 +1,4 @@
-package com.lukamaret.course.ihm.projetTD.seance2.ihm;
+package com.lukamaret.course.ihm.projetTD.seance3.seance2.ihm;
 
 import javax.swing.*;
 
